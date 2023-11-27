@@ -10,9 +10,28 @@
         function getComputerChoice() {
             const item = ["rock", "paper", "scissor"];
             const random = Math.floor(Math.random() * item.length);
-            console.log(random, item[random]);
+            const result = (item[random]);
+            console.log("Computer chose: " + result);
+            console.log("Player chose: rock");
+            return result;
         }
-        console.log(getComputerChoice());
+
+        function playRound(playerSelection, computerSelection) {
+            if (computerSelection == "rock") {
+                console.log("Draw!");
+                return;
+            } else if (computerSelection == "scissor"){
+                console.log("You win! Rock beats scissor!");
+                return;
+            } else {
+                console.log("Computer wins! Paper beats rock!");
+                return;
+            }
+        }
+        const playerSelection = "rock";
+        const computerSelection = getComputerChoice();
+
+        playRound(playerSelection, computerSelection);
     </script>
 </body>
 </html>
