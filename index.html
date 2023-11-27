@@ -12,23 +12,41 @@
             const random = Math.floor(Math.random() * item.length);
             const result = (item[random]);
             console.log("Computer chose: " + result);
-            console.log("Player chose: rock");
+            console.log("Player chose: " + playerSelection);
             return result;
         }
 
         function playRound(playerSelection, computerSelection) {
-            if (computerSelection == "rock") {
+            if (computerSelection == "rock" && playerSelection == "rock") {
                 console.log("Draw!");
                 return;
-            } else if (computerSelection == "scissor"){
-                console.log("You win! Rock beats scissor!");
+            } else if (computerSelection == "rock" && playerSelection == "paper") {
+                console.log("Player wins! Paper beats rock!");
                 return;
-            } else {
+            } else if (computerSelection == "rock" && playerSelection == "scissor") {
+                console.log("Computer wins! Rock beats scissor!");
+                return;
+            } else if (computerSelection == "paper" && playerSelection == "rock") {
                 console.log("Computer wins! Paper beats rock!");
+                return;
+            } else if (computerSelection == "paper" && playerSelection == "paper") {
+                console.log("Draw!");
+                return;
+            } else if (computerSelection == "paper" && playerSelection == "scissor") {
+                console.log("Plyer wins! Scissor beats paper!");
+                return;
+            } else if (computerSelection == "scissor" && playerSelection == "rock") {
+                console.log("Player wins! Rock beats scissor!");
+                return;
+            } else if (computerSelection == "scissor" && playerSelection == "paper") {
+                console.log("Computer wins! Scissor beats paper!");
+                return;
+            } else if (computerSelection == "scissor" && playerSelection == "scissor") {
+                console.log("Draw!");
                 return;
             }
         }
-        const playerSelection = "rock";
+        const playerSelection = prompt("Make a choice - rock, paper or scissor?");
         const computerSelection = getComputerChoice();
 
         playRound(playerSelection, computerSelection);
